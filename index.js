@@ -11,6 +11,24 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = () => {
-  return tutorials
+const titleCased = function (){
+  const newArray = tutorials.map(function(element){
+    return titleCase(element);
+  }); 
+  return newArray;
 }
+function titleCase(str){
+  const strArray = str.split(' ')
+  const capitalizedWords = [];
+  for (const word of strArray){
+  //  console.log(word)
+    const firstLetter = word.charAt(0).toLocaleUpperCase()
+    const rest = word.slice(1);
+    const newWord = firstLetter + rest;
+    capitalizedWords.push(newWord);
+  }
+  return capitalizedWords.join(' ')
+}
+//console.log(titleCased());
+//titleCase('What is the difference between stopPropagation and preventDefault?');
+  
